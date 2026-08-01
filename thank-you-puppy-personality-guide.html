@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Order Confirmed | PuppyMatch Pro</title>
+<meta name="robots" content="noindex">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFFBF5; --ink:#2B2520; --ink2:#5A5048; --ink3:#9A8E80;
+  --line:#EBE0D2; --wild:#E8633C; --wild-pale:#FCE6DD;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:1.5rem}
+.card{max-width:460px;width:100%;text-align:center;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 2px 24px rgba(43,37,32,.07);padding:2.6rem 2rem}
+.check{width:56px;height:56px;border-radius:50%;background:var(--wild-pale);color:var(--wild);display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;font-size:1.6rem;font-weight:800}
+h1{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:800;margin-bottom:.6rem}
+.order-ref{font-size:.78rem;color:var(--ink3);margin-bottom:1.4rem}
+p{font-size:.98rem;color:var(--ink2);margin-bottom:1rem}
+p:last-of-type{margin-bottom:0}
+.support{font-size:.85rem;color:var(--ink3);margin-top:1.6rem;padding-top:1.4rem;border-top:1px solid var(--line)}
+.support a{color:var(--ink2)}
+.thumb{width:72px;height:72px;border-radius:12px;overflow:hidden;margin:0 auto 1.1rem;box-shadow:0 2px 10px rgba(43,37,32,.15)}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.legal{font-size:.72rem;color:var(--ink3);margin-top:.9rem}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="thumb"><img src="puppy-personality-thumbnail.jpg" alt="How To Choose The Puppy With The Best Personality For You"></div>
+  <div class="check">✓</div>
+  <h1 id="greeting">You're all set!</h1>
+  <div class="order-ref" id="orderRef"></div>
+  <p>Your order for <strong>How To Choose The Puppy With The Best Personality For You</strong> is confirmed.</p>
+  <p>Your download link is on its way to <span id="emailRef">your inbox</span> — check email from Digistore24, and take a peek in spam/promotions if it's not there within a few minutes.</p>
+  <div class="support">
+    Questions about your order? Email <a href="mailto:REPLACE_WITH_YOUR_SUPPORT_EMAIL">REPLACE_WITH_YOUR_SUPPORT_EMAIL</a>
+    <div class="legal">The debit will be performed by Digistore24.com.</div>
+  </div>
+</div>
+
+<script>
+/*
+  ── DIGISTORE24 SETUP ──────────────────────────────────────────────
+  Set this page as your "Thank you page" in Digistore24 with order
+  data appended as query params, e.g.:
+
+  https://puppymatchpro.com/thank-you-puppy-personality-guide.html?first_name=[BUYER_FIRST_NAME]&order_id=[ORDER_ID]&email=[BUYER_EMAIL]
+
+  Also replace REPLACE_WITH_YOUR_SUPPORT_EMAIL above with your real
+  support address.
+*/
+const params = new URLSearchParams(window.location.search);
+const firstName = params.get("first_name");
+const orderId = params.get("order_id");
+const email = params.get("email");
+
+if (firstName) {
+  document.getElementById("greeting").textContent = "You're all set, " + firstName + "!";
+}
+if (orderId) {
+  document.getElementById("orderRef").textContent = "Order #" + orderId;
+}
+if (email) {
+  document.getElementById("emailRef").textContent = email;
+}
+</script>
+
+</body>
+</html>
