@@ -56,7 +56,9 @@ img{max-width:100%;display:block}
 
 /* PRODUCT HEADER */
 .product{display:flex;gap:2.5rem;flex-wrap:wrap;align-items:flex-start}
-.product-img{flex:1 1 360px;max-width:420px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+.product-img{flex:1 1 360px;max-width:420px}
+.product-img-frame{border-radius:16px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+.img-disclaimer{text-align:center;font-size:.75rem;color:var(--ink3);margin-top:.6rem}
 .product-info{flex:1 1 320px;min-width:280px}
 .product-info h1{font-size:clamp(1.5rem,3.4vw,2rem);font-weight:700;margin-bottom:.6rem}
 .rating-line{display:flex;align-items:center;gap:.5rem;font-size:.85rem;color:var(--ink2);margin-bottom:1.1rem}
@@ -104,7 +106,10 @@ img{max-width:100%;display:block}
   <!-- PRODUCT HEADER -->
   <div class="product">
     <div class="product-img">
-      <img src="puppy-personality-3d-cover.jpg" alt="How To Choose The Puppy With The Best Personality For You — guide cover" loading="eager">
+      <div class="product-img-frame">
+        <img src="puppy-personality-3d-cover.jpg" alt="How To Choose The Puppy With The Best Personality For You — guide cover" loading="eager">
+      </div>
+      <div class="img-disclaimer">Digital product — no physical item will be shipped.</div>
     </div>
     <div class="product-info">
       <h1>How To Choose The Puppy With The Best Personality For You</h1>
@@ -140,6 +145,7 @@ img{max-width:100%;display:block}
 
   <div style="text-align:center;margin:2.5rem auto 0">
     <img src="puppy-personality-3d-cover-small.jpg" alt="How To Choose The Puppy With The Best Personality For You — guide cover" style="width:200px;margin:0 auto;border-radius:10px;box-shadow:0 8px 24px rgba(43,37,32,.18)">
+    <div class="img-disclaimer">Digital product — no physical item will be shipped.</div>
   </div>
 
 
@@ -155,7 +161,7 @@ img{max-width:100%;display:block}
 </div>
 
 <div class="foot">
-  <a href="legal-information.html">Legal Information</a>
+  <a href="legal-information.html">Legal Information</a> · <a href="privacy-policy.html">Privacy Policy</a>
 </div>
 
 <script>
