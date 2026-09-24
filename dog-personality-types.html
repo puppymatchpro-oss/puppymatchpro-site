@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,10 +30,7 @@ src="https://ct.pinterest.com/v3/?event=init&tid=2612345371476&noscript=1" />
 <!-- End Pinterest Tag -->
 
 <!-- Digistore24 Promocode (affiliate attribution) -->
-<script src="https://www.digistore24-scripts.com/service/digistore.js"></script>
-<script type="text/javascript">
-digistorePromocode({ "product_id": 717670, "adjust_domain": true });
-</script>
+<script src="https://www.digistore24-scripts.com/service/digistore.js" onload="if(typeof digistorePromocode==='function'){digistorePromocode({ product_id: 717670, adjust_domain: true });}" onerror="console.warn('Digistore24 promocode script failed to load — buy links will still work, just without auto-tagging.')"></script>
 <!-- End Digistore24 Promocode -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,51 +47,72 @@ digistorePromocode({ "product_id": 717670, "adjust_domain": true });
 body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
 h1,h2,h3{font-family:'Fraunces',serif;line-height:1.2}
 img{max-width:100%;display:block}
-.wrap{max-width:960px;margin:0 auto;padding:2.5rem 1.25rem 4rem}
+a{color:inherit}
+.wrap{max-width:700px;margin:0 auto;padding:2.5rem 1.25rem 4rem}
 
+/* HERO */
+.hero{text-align:center;margin-bottom:2.2rem}
+.hero-img-link{display:inline-block;width:220px;margin:0 auto 1.6rem;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);transition:transform .15s}
+.hero-img-link:hover{transform:translateY(-3px)}
+.hero h1{font-size:clamp(1.6rem,4.2vw,2.3rem);font-weight:700;margin-bottom:.9rem}
+.hero .kicker{display:inline-block;background:var(--wild-pale);color:var(--wild);font-weight:700;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;padding:.4rem .9rem;border-radius:999px;margin-bottom:1rem}
+.hero .sub{font-size:1.05rem;color:var(--ink2);max-width:520px;margin:0 auto}
+.hero .sub strong{color:var(--ink)}
 
-/* PRODUCT HEADER */
-.product{display:flex;gap:2.5rem;flex-wrap:wrap;align-items:flex-start}
-.product-img{flex:1 1 360px;max-width:420px}
-.product-img-frame{border-radius:16px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
-.img-disclaimer{text-align:center;font-size:.75rem;color:var(--ink3);margin-top:.6rem}
-.product-info{flex:1 1 320px;min-width:280px}
-.product-info h1{font-size:clamp(1.5rem,3.4vw,2rem);font-weight:700;margin-bottom:.6rem}
-.rating-line{display:flex;align-items:center;gap:.5rem;font-size:.85rem;color:var(--ink2);margin-bottom:1.1rem}
-.rating-line b{color:var(--ink)}
-.excerpt p{font-size:.98rem;color:var(--ink2);margin-bottom:.9rem}
-.excerpt p strong{color:var(--ink)}
-.buy-block{margin-top:1.4rem;padding-top:1.4rem;border-top:1px solid var(--line)}
-.price{font-family:'Fraunces',serif;font-size:1.9rem;font-weight:800;color:var(--ink);margin-bottom:1rem}
-.cta-btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--wild);color:#fff;font-weight:700;font-size:1rem;padding:.9rem 2.1rem;border-radius:10px;text-decoration:none;transition:transform .15s,box-shadow .15s;box-shadow:0 8px 24px rgba(232,99,60,.3)}
+/* BULLET / CHECK LISTS */
+.check-list{list-style:none;margin:1.4rem 0;padding:0}
+.check-list li{position:relative;padding-left:1.9rem;margin-bottom:.85rem;font-size:.98rem;color:var(--ink2)}
+.check-list li strong{color:var(--ink)}
+.check-list li::before{content:"✓";position:absolute;left:0;top:0;color:var(--wild);font-weight:800}
+.x-list{list-style:none;margin:1.4rem 0;padding:0}
+.x-list li{position:relative;padding-left:1.9rem;margin-bottom:.85rem;font-size:.98rem;color:var(--ink2)}
+.x-list li::before{content:"✕";position:absolute;left:0;top:2px;color:var(--ink3);font-weight:800;font-size:.85rem}
+
+/* SECTION HEADS */
+.section{margin-top:2.8rem}
+.section h2{font-size:1.35rem;margin-bottom:1rem}
+
+/* STORY BOX */
+.story-box{background:var(--paper2);border-left:4px solid var(--wild);border-radius:4px 12px 12px 4px;padding:1.4rem 1.6rem;margin:1.6rem 0}
+.story-box p{font-size:.98rem;color:var(--ink2);margin-bottom:.8rem}
+.story-box p:last-child{margin-bottom:0}
+.story-box p em{color:var(--ink);font-style:normal;font-weight:600}
+
+/* INSIGHT CALLOUT */
+.callout{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:1.6rem 1.8rem;margin:1.8rem 0;text-align:center}
+.callout p{font-size:1.08rem;color:var(--ink);font-weight:600;line-height:1.55}
+.callout p strong{color:var(--wild)}
+
+/* MID CTA CARD */
+.cta-card{display:flex;gap:1.4rem;align-items:center;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:1.4rem;margin:2.2rem 0;flex-wrap:wrap}
+.cta-card-img-link{flex:0 0 100px;width:100px;border-radius:10px;overflow:hidden;box-shadow:0 6px 16px rgba(43,37,32,.15)}
+.cta-card-body{flex:1 1 200px;min-width:180px}
+.cta-card .price{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:800;color:var(--ink);margin-bottom:.5rem}
+.cta-card .note{font-size:.78rem;color:var(--ink3);margin-top:.5rem}
+
+.cta-btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--wild);color:#fff;font-weight:700;font-size:1rem;padding:.85rem 1.8rem;border-radius:10px;text-decoration:none;transition:transform .15s,box-shadow .15s;box-shadow:0 8px 24px rgba(232,99,60,.3)}
 .cta-btn:hover{transform:translateY(-2px)}
-.cta-note{font-size:.78rem;color:var(--ink3);margin-top:.8rem}
+.cta-btn.small{padding:.65rem 1.3rem;font-size:.92rem}
 
-/* MORE DETAILS */
-.details{max-width:700px;margin:3.5rem auto 0;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:2rem 2.2rem}
-.details h2{font-size:1.35rem;margin-bottom:1.2rem}
-.details p{font-size:.98rem;color:var(--ink2);margin-bottom:1.1rem}
-.details p:last-child{margin-bottom:0}
-.details p strong{color:var(--ink)}
-.details p em{color:var(--ink)}
-
-/* MID CTA */
-.mid-cta{text-align:center;margin:2.5rem auto 0;max-width:700px}
-
+/* WHAT'S INSIDE */
+.inside-box{background:var(--paper2);border-radius:14px;padding:1.6rem 1.8rem;margin:1.6rem 0}
+.inside-box h3{font-size:1.05rem;margin-bottom:1rem}
 
 /* FINAL CTA */
-.final-cta{text-align:center;margin:3.5rem auto 0;max-width:700px;padding-top:2.5rem;border-top:1px solid var(--line)}
-.final-cta h3{font-size:1.5rem;margin-bottom:.8rem}
-.final-cta p{color:var(--ink2);font-size:.98rem;margin-bottom:1.5rem;max-width:480px;margin-left:auto;margin-right:auto}
+.final-cta{text-align:center;margin:3.2rem auto 0;padding-top:2.5rem;border-top:1px solid var(--line)}
+.final-cta h3{font-size:1.6rem;margin-bottom:.8rem}
+.final-cta p{color:var(--ink2);font-size:.98rem;margin-bottom:1.4rem;max-width:480px;margin-left:auto;margin-right:auto}
+.final-cta .final-img-link{display:inline-block;width:200px;margin:0 auto 1.4rem;border-radius:10px;overflow:hidden;box-shadow:0 8px 24px rgba(43,37,32,.18)}
+.price{font-family:'Fraunces',serif;font-size:1.9rem;font-weight:800;color:var(--ink)}
+.cta-note{font-size:.78rem;color:var(--ink3);margin-top:.8rem}
 
 /* FOOTER */
 .foot{text-align:center;padding:2.5rem 1.25rem;color:var(--ink3);font-size:.8rem}
 .foot a{color:var(--ink2)}
 
-
 @media(max-width:640px){
-  .product{gap:1.6rem}
-  .details{padding:1.6rem 1.4rem}
+  .cta-card{flex-direction:column;text-align:center}
+  .cta-card-img-link{width:120px}
 }
 </style>
 </head>
@@ -103,56 +120,98 @@ img{max-width:100%;display:block}
 
 <div class="wrap">
 
-  <!-- PRODUCT HEADER -->
-  <div class="product">
-    <div class="product-img">
-      <div class="product-img-frame">
-        <img src="puppy-personality-3d-cover.jpg" alt="How To Choose The Puppy With The Best Personality For You — guide cover" loading="eager">
-      </div>
-      <div class="img-disclaimer">Digital product — no physical item will be shipped.</div>
+  <!-- HERO: seductive copy first, small image, no price -->
+  <div class="hero">
+    <a href="https://www.checkout-ds24.com/product/717670" target="_blank" rel="noopener" class="hero-img-link buy-btn">
+      <img src="puppy-personality-3d-cover.jpg" alt="How To Choose The Puppy With The Best Personality For You — guide cover" loading="eager">
+    </a>
+    <span class="kicker">Before You Pick A Puppy, Read This</span>
+    <h1>Ever Wondered Why Some Dogs Are Perfectly Behaved — Even Tough Breeds — While Others Are Complete Nightmares?</h1>
+    <p class="sub">It's not really about the breed. And it's not really about training. <strong>It comes down to one decision you make in about ten minutes: which puppy you pick out of the litter.</strong></p>
+  </div>
+
+  <!-- THE PROBLEM -->
+  <div class="section">
+    <h2>Here's How Most People Choose A Puppy</h2>
+    <ul class="x-list">
+      <li>They walk into the litter and one little furball makes a beeline for them</li>
+      <li>Their heart melts on the spot — decision made, right there</li>
+      <li>No assessment. No research. Just pure, unfiltered emotion</li>
+    </ul>
+    <p style="color:var(--ink2);font-size:.98rem">And sometimes it works out beautifully. Other times, you get a 124-pound dog who declares himself ruler of your street, terrorizes the neighbors, and defeats every trainer who tries to reach him.</p>
+  </div>
+
+  <!-- STORY -->
+  <div class="story-box">
+    <p><em>That was my first dog.</em> A tough, dominant breed I picked with my heart instead of my head — and he taught me, the hard way, everything I'm about to hand you in ten minutes of reading.</p>
+  </div>
+
+  <!-- KEY INSIGHT -->
+  <div class="callout">
+    <p>Here's what most people never realize: <strong>by seven weeks old, a puppy's adult personality is already fully formed</strong> — and already showing itself, if you know what to look for.</p>
+  </div>
+
+  <div class="section">
+    <p style="color:var(--ink2);font-size:.98rem">The dominance. The sociability. The trainability. The temperament. It's all there, right in front of you, in that litter — you just haven't been taught how to read it. Until now.</p>
+  </div>
+
+  <!-- FIRST CTA -->
+  <div class="cta-card">
+    <a href="https://www.checkout-ds24.com/product/717670" target="_blank" rel="noopener" class="cta-card-img-link buy-btn">
+      <img src="puppy-personality-3d-cover-small.jpg" alt="How To Choose The Puppy With The Best Personality For You — guide cover">
+    </a>
+    <div class="cta-card-body">
+      <div class="price">$14.97</div>
+      <a href="https://www.checkout-ds24.com/product/717670" target="_blank" rel="noopener" class="cta-btn small buy-btn">Get The Guide</a>
+      <div class="note">Instant PDF download · 60-day money-back guarantee</div>
     </div>
-    <div class="product-info">
-      <h1>How To Choose The Puppy With The Best Personality For You</h1>
-      <div class="excerpt">
-        <p><strong>Ever Wondered Why Some Dogs Are Perfectly Behaved — Even Tough Breeds — While Others Are Complete Nightmares? Here's The Reason Why...</strong></p>
-        <p>Up to a point it has to do with the breed. And yes, training plays a factor.</p>
-        <p>But mostly it comes down to one thing: which puppy you picked.</p>
-      </div>
-      <div class="buy-block">
-        <div class="price">$14.97</div>
-        <a href="https://www.checkout-ds24.com/product/717670" target="_blank" rel="noopener" class="cta-btn buy-btn">Get The Guide</a>
-        <div class="cta-note">Digital product · instant PDF download · no physical item ships · 60-day money-back guarantee</div>
-      </div>
+  </div>
+
+  <!-- WHAT'S INSIDE -->
+  <div class="section">
+    <h2>What You'll Get Inside The Guide</h2>
+    <div class="inside-box">
+      <h3>Ten simple tests. A clear scoring system. One confident choice.</h3>
+      <ul class="check-list">
+        <li><strong>Ten hands-on assessments</strong> you can run in the litter in under ten minutes</li>
+        <li><strong>A straightforward scoring system</strong> that tells you exactly what each response means</li>
+        <li><strong>A personality-to-lifestyle matching guide</strong> — kids or no kids, first-time owner or experienced, companion or working dog</li>
+        <li><strong>The exact framework</strong> to spot the puppy that will grow into a joy to live with — and the one that will test your patience for the next twelve years</li>
+      </ul>
+    </div>
+    <p style="color:var(--ink2);font-size:.98rem">You just need to know which one it is <strong>before</strong> you fall in love with the wrong one.</p>
+  </div>
+
+  <!-- WHO IT'S FOR -->
+  <div class="section">
+    <h2>This Guide Is For You If...</h2>
+    <ul class="check-list">
+      <li>You're choosing a puppy for the <strong>first time</strong> and don't want to leave it to chance</li>
+      <li>You have <strong>kids</strong> and need a temperament that's a genuine match for your household</li>
+      <li>You want a <strong>working or high-drive dog</strong> and need to spot real trainability early</li>
+      <li>You've been burned before by a dog whose personality turned out nothing like you expected</li>
+    </ul>
+  </div>
+
+  <!-- SECOND CTA -->
+  <div class="cta-card">
+    <a href="https://www.checkout-ds24.com/product/717670" target="_blank" rel="noopener" class="cta-card-img-link buy-btn">
+      <img src="puppy-personality-3d-cover-small.jpg" alt="How To Choose The Puppy With The Best Personality For You — guide cover">
+    </a>
+    <div class="cta-card-body">
+      <div class="price">$14.97</div>
+      <a href="https://www.checkout-ds24.com/product/717670" target="_blank" rel="noopener" class="cta-btn small buy-btn">Get The Guide</a>
+      <div class="note">Instant PDF download · 60-day money-back guarantee</div>
     </div>
   </div>
-
-  <!-- MORE DETAILS -->
-  <div class="details">
-    <h2>More Details</h2>
-    <p>Most people choose a puppy the same way — they walk in, one little furball makes a beeline for them, melts their heart on the spot, and the decision is made right there. No research. No assessment. Just pure, unfiltered emotion.</p>
-    <p>And sometimes it works out beautifully. Other times... well. You end up with a 124-pound Alaskan Malamute who has declared himself the undisputed ruler of your street, terrorized your neighbors into threatening lawsuits, and who no trainer on earth seems able to reach for longer than three weeks.</p>
-    <p>That was my first dog. And he taught me everything I'm about to share with you.</p>
-    <p>Here's what most people never realize: <strong>by the time a puppy is just seven weeks old, its adult personality is already fully formed</strong> — and already showing itself, if you know what to look for. The dominance, the sociability, the trainability, the temperament — it's all there, right in front of you.</p>
-    <p>This guide gives you the tools to read it.</p>
-    <p>Ten simple assessments. A straightforward scoring system. And suddenly you can tell, with remarkable accuracy, whether that adorable little bundle is going to grow into a dog that's a joy to live with — or one that's going to test every ounce of your patience for the next twelve years.</p>
-    <p>This guide walks you through every step of the test, what each response means, and exactly how to match the right puppy to your personality, your household and your lifestyle. Whether you have kids, whether you're a first-time owner, whether you want a companion or a working dog — there's a right puppy in that litter for you.</p>
-    <p>You just need to know which one it is before you fall in love with the wrong one.</p>
-  </div>
-
-  <div class="mid-cta">
-    <a href="https://www.checkout-ds24.com/product/717670" target="_blank" rel="noopener" class="cta-btn buy-btn">Get The Guide — <span class="price-inline">$14.97</span></a>
-  </div>
-
-  <div style="text-align:center;margin:2.5rem auto 0">
-    <img src="puppy-personality-3d-cover-small.jpg" alt="How To Choose The Puppy With The Best Personality For You — guide cover" style="width:200px;margin:0 auto;border-radius:10px;box-shadow:0 8px 24px rgba(43,37,32,.18)">
-    <div class="img-disclaimer">Digital product — no physical item will be shipped.</div>
-  </div>
-
 
   <!-- FINAL CTA -->
   <div class="final-cta">
-    <h3>Test. Observe. Choose wisely.</h3>
-    <p>Twelve years is a long commitment to leave to a coin flip. Get the guide and know which puppy is right before you fall for the wrong one.</p>
+    <a href="https://www.checkout-ds24.com/product/717670" target="_blank" rel="noopener" class="final-img-link buy-btn">
+      <img src="puppy-personality-3d-cover.jpg" alt="How To Choose The Puppy With The Best Personality For You — guide cover">
+    </a>
+    <h3>Test. Observe. Choose Wisely.</h3>
+    <p>Twelve years is a long commitment to leave to a coin flip. Get the guide and know which puppy is right — before you fall for the wrong one.</p>
     <div class="price" style="margin-bottom:1rem">$14.97</div>
     <a href="https://www.checkout-ds24.com/product/717670" target="_blank" rel="noopener" class="cta-btn buy-btn">Get Instant Access</a>
     <div class="cta-note">Digital product · instant PDF download · no physical item ships · 60-day money-back guarantee · Secure checkout via Digistore24</div>
@@ -161,23 +220,23 @@ img{max-width:100%;display:block}
 </div>
 
 <div class="foot">
-  <a href="legal-information.html">Legal Information</a> · <a href="privacy-policy.html">Privacy Policy</a>
+  <a href="legal-information.html">Legal Information</a>
 </div>
 
 <script>
 /*
   ── DIGISTORE24 SETUP ──────────────────────────────────────────────
-  Buy button hrefs are now static in the HTML itself (not set by JS),
-  so Digistore24's Promocode script (in <head>) can find and tag them
-  with affiliate IDs the moment the page loads — no timing issues, and
-  the buttons still work even if JavaScript fails or is blocked.
-  Update PRICE below only if you change pricing in the Payment Plans tab.
+  All buy links (image click-throughs, price boxes, CTA buttons) carry
+  the class "buy-btn" and a static href in the HTML itself, so
+  Digistore24's Promocode script (in <head>) can find and tag every one
+  of them with affiliate IDs the moment the page loads — no timing
+  issues, and every link still works even if JavaScript fails or is
+  blocked.
+  Update PRICE below only if you change pricing in the Payment Plans tab
+  — note this page's price boxes are static text, not JS-driven, so also
+  update the "$14.97" text in the HTML directly if you change price.
 */
 const PRICE = "$14.97";
-
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".price-inline").forEach(function(el){ el.textContent = PRICE; });
-});
 </script>
 
 </body>
